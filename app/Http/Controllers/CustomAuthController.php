@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 class CustomAuthController extends Controller
 {
 
-    public function index()
+    public function index(Request $request)
     {
         return view('auth.login');
     }
@@ -22,6 +22,7 @@ class CustomAuthController extends Controller
 
     public function customLogin(Request $request)
     {
+
         $request->validate([
             'email' => 'required',
             'password' => 'required',
@@ -90,5 +91,10 @@ class CustomAuthController extends Controller
         Auth::logout();
 
         return Redirect('login');
+    }
+
+    public function face(Request $request)
+    {
+    dd($request);
     }
 }
